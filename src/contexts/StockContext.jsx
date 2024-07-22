@@ -19,21 +19,18 @@ export function StockContextProvider({ children }) {
         return items
     })
 
+    const addItem = (item) => {
+        setItems((current) => {
+            const updatedItems = [item, ...current]
+            localStorage.setItem("stock-items", JSON.stringify(updatedItems))
+            return updatedItems
+        })
+    }
+
     const stock = {
         items,
         addItem,
     }
 
-    const addItem = (item) => {
-        setItems(currentState => {
-            const updatedItems = [item, ...currentState]
-            localStorage.setItem("stock-items", JSON.stringify(updatedItems))
-        })
-    }
-
-    return (
-    <StockContext.Provider value={stock}>
-        {children}
-    </StockContext.Provider>
-    )
+    return <StockContext.Provider value={stock}>{children}</StockContext.Provider>
 }
