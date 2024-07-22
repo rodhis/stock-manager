@@ -2,6 +2,11 @@ import { createBrowserRouter } from "react-router-dom"
 
 import RootLayout from "./views/RootLayout"
 import Home from "./views/Home"
+import ListItems from "./views/items/ListItems"
+import CreateItem from "./views/items/CreateItem"
+import ShowItem from "./views/items/ShowItem"
+import UpdateItem from "./views/items/UpdateItem"
+import ItemsLayout from "./views/items/ItemsLayout"
 
 const router = createBrowserRouter([
     {
@@ -35,3 +40,5 @@ const router = createBrowserRouter([
         ],
     },
 ])
+
+export default router
