@@ -27,6 +27,10 @@ export function StockContextProvider({ children }) {
         })
     }
 
+    const getItem = (itemId) => {
+        return items.find((item) => item.id === +itemId)
+    }
+
     const deleteItem = (itemId) => {
         setItems(currentState => {
             const updatedItems = currentState.filter(item => item.id !== itemId)
@@ -38,6 +42,7 @@ export function StockContextProvider({ children }) {
     const stock = {
         items,
         addItem,
+        getItem,
         deleteItem
     }
 
