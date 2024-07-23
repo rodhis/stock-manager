@@ -5,7 +5,7 @@ export default function ItemsLayout() {
 
     return (
         <main>
-            <h1>Stock Items</h1>
+            <h1>Itens do Estoque</h1>
             <div className={`"tabs"`}>
                 <Link to="/items" className={`tab ${pathname === "/items" ? "active" : ""}`}>
                     Todos os Items
