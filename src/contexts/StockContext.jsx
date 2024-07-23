@@ -8,6 +8,9 @@ StockContextProvider.propTypes = {
 }
 
 export function StockContextProvider({ children }) {
+
+
+    
     const [items, setItems] = useState(() => {
         const storedItems = localStorage.getItem("stock-items")
         if (!storedItems) return []
@@ -31,9 +34,19 @@ export function StockContextProvider({ children }) {
         return items.find((item) => item.id === +itemId)
     }
 
+    const updateItem = (itemId, newAtributes) => {
+        setItems((currentState) => {
+            const itemIndex = currentState.findIndex((item) => item.id === +itemId)
+            const updatedItems = [...currentState]
+            Object.assign(updatedItems[itemIndex], newAtributes, { updatedAt: new Date() })
+            localStorage.setItem("stock-items", JSON.stringify(updatedItems))
+            return updatedItems
+        })
+    }
+
     const deleteItem = (itemId) => {
-        setItems(currentState => {
-            const updatedItems = currentState.filter(item => item.id !== itemId)
+        setItems((currentState) => {
+            const updatedItems = currentState.filter((item) => item.id !== itemId)
             localStorage.setItem("stock-items", JSON.stringify(updatedItems))
             return updatedItems
         })
@@ -43,7 +56,9 @@ export function StockContextProvider({ children }) {
         items,
         addItem,
         getItem,
+        updateItem,
         deleteItem
+        
     }
 
     return <StockContext.Provider value={stock}>{children}</StockContext.Provider>
