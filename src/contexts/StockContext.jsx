@@ -20,8 +20,16 @@ export function StockContextProvider({ children }) {
     })
 
     const addItem = (item) => {
-        setItems((current) => {
-            const updatedItems = [item, ...current]
+        setItems((currentState) => {
+            const updatedItems = [item, ...currentState]
+            localStorage.setItem("stock-items", JSON.stringify(updatedItems))
+            return updatedItems
+        })
+    }
+
+    const deleteItem = (itemId) => {
+        setItems(currentState => {
+            const updatedItems = currentState.filter(item => item.id !== itemId)
             localStorage.setItem("stock-items", JSON.stringify(updatedItems))
             return updatedItems
         })
@@ -30,6 +38,7 @@ export function StockContextProvider({ children }) {
     const stock = {
         items,
         addItem,
+        deleteItem
     }
 
     return <StockContext.Provider value={stock}>{children}</StockContext.Provider>
