@@ -19,5 +19,6 @@ Para começar a usar este projeto, siga os passos abaixo:
 
 ## Projeto de Treinamento
 
-Este projeto foi desenvolvido como parte de um treinamento em React e Vite. Ele serve como um exemplo prático para aprender e praticar conceitos fundamentais de desenvolvimento de aplicações web utilizando essas tecnologias.
+Este projeto foi desenvolvido como parte de um treinamento em React, Vite, React Router e Context API. Ele foi construído como uma SPA (Single Page Application), o que permite uma experiência de usuário mais fluida e dinâmica, sem a necessidade de recarregar a página. Além disso, a persistência de dados é realizada utilizando o localStorage, garantindo que os dados do usuário sejam mantidos entre as sessões de navegação.
 
+Este exemplo prático serve para aprender e praticar conceitos fundamentais de desenvolvimento de aplicações web, incluindo roteamento de páginas, gerenciamento de estado global com Context API, e técnicas de persistência de dados.
