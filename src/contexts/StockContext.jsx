@@ -8,9 +8,6 @@ StockContextProvider.propTypes = {
 }
 
 export function StockContextProvider({ children }) {
-
-
-    
     const [items, setItems] = useState(() => {
         const storedItems = localStorage.getItem("stock-items")
         if (!storedItems) return []
@@ -57,8 +54,7 @@ export function StockContextProvider({ children }) {
         addItem,
         getItem,
         updateItem,
-        deleteItem
-        
+        deleteItem,
     }
 
     return <StockContext.Provider value={stock}>{children}</StockContext.Provider>

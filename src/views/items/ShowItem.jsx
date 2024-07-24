@@ -8,6 +8,13 @@ export default function ShowItem() {
 
     const item = getItem(id)
 
+    const formatDate = (date) => {
+        if (!date) return "Data inválida"
+        const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" }
+        const parsedDate = new Date(date)
+        return isNaN(parsedDate) ? "Data inválida" : parsedDate.toLocaleDateString("pt-BR", options)
+    }
+
     return (
         <div className="item">
             <h2>{item.name}</h2>
@@ -22,8 +29,8 @@ export default function ShowItem() {
             </div>
             <p>{item.description}</p>
             <div className="row">
-                <p>Cadastrado em: {item.createdAt.toDateString()}</p>
-                <p>Atualizado em: {item.updatedAt.toDateString()}</p>
+                <p>Cadastrado em: {formatDate(item.createdAt)}</p>
+                <p>Atualizado em: {formatDate(item.updatedAt)}</p>
             </div>
         </div>
     )
